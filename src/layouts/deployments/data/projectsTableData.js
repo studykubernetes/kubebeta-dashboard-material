@@ -60,8 +60,8 @@ export default function data() {
     columns: [
       { Header: "Name", accessor: "Name", width: "20%", align: "left" },
       { Header: "Namespace", accessor: "Namespace", width: "20%", align: "left" },
-      { Header: "Replicas", accessor: "Replicas", width: "20%", align: "left" },
-      { Header: "CreationTimestamp", accessor: "CreationTimestamp", width: "20%", align: "left" },
+      { Header: "Replicas", accessor: "Replicas", width: "10%", align: "right" },
+      { Header: "CreationTimestamp", accessor: "CreationTimestamp", width: "20%", align: "right" },
     ],
     rows: nodes,
   };
