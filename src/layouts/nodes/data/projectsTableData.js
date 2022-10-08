@@ -31,8 +31,32 @@ Coded by www.creative-tim.com
 // import logoSlack from "assets/images/small-logos/logo-slack.svg";
 // import logoSpotify from "assets/images/small-logos/logo-spotify.svg";
 // import logoInvesion from "assets/images/small-logos/logo-invision.svg";
+import { useState, useEffect } from "react";
 
 export default function data() {
+  const [nodes, setNodes] = useState(Array);
+  useEffect(() => {
+    const url = "http://localhost:8080/nodes";
+    const fetchData = async () => {
+      const response = await fetch(url);
+      const json = await response.json();
+      console.log(json.ResponseCode);
+
+      const ajaxData = [];
+      json.ResponseData.forEach((el) => {
+        ajaxData.push({
+          Name: el.Name,
+          Cpu: el.Status.capacity.cpu,
+          Address: el.Status.addresses[0].address,
+          Version: el.Status.nodeInfo.kubeletVersion,
+          Os: el.Status.nodeInfo.osImage,
+        });
+      });
+      setNodes(ajaxData);
+    };
+    fetchData();
+  }, []);
+
   return {
     columns: [
       { Header: "Name", accessor: "Name", width: "30%", align: "left" },
@@ -41,14 +65,6 @@ export default function data() {
       { Header: "Version", accessor: "Version", width: "20%", align: "center" },
       { Header: "Os", accessor: "Os", width: "20%", align: "center" },
     ],
-    rows: [
-      {
-        Name: "Node1",
-        Cpu: 4,
-        Address: "127.0.0.1",
-        Version: "v1.24.6+rke2r1",
-        Os: "Ubuntu 22.04 LTS",
-      },
-    ],
+    rows: nodes,
   };
 }
