@@ -29,7 +29,7 @@ import DataTable from "examples/Tables/DataTable";
 
 // Data
 // import authorsTableData from "layouts/nodes/data/authorsTableData";
-import projectsTableData from "layouts/nodes/data/projectsTableData";
+import projectsTableData from "layouts/namespaces/data/projectsTableData";
 
 function Tables() {
   const { columns: pColumns, rows: pRows } = projectsTableData();
@@ -52,7 +52,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Nodes Table
+                  Namespaces Table
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
