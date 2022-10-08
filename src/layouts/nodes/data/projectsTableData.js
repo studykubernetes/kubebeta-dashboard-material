@@ -16,11 +16,11 @@ Coded by www.creative-tim.com
 */
 
 // @mui material components
-import Icon from "@mui/material/Icon";
+// import Icon from "@mui/material/Icon";
 
 // Material Dashboard 2 React components
 // import MDBox from "components/MDBox";
-import MDTypography from "components/MDTypography";
+// import MDTypography from "components/MDTypography";
 // import MDAvatar from "components/MDAvatar";
 // import MDProgress from "components/MDProgress";
 
@@ -35,32 +35,19 @@ import MDTypography from "components/MDTypography";
 export default function data() {
   return {
     columns: [
-      { Header: "project", accessor: "project", width: "30%", align: "left" },
-      { Header: "budget", accessor: "budget", align: "left" },
-      { Header: "status", accessor: "status", align: "center" },
-      { Header: "completion", accessor: "completion", align: "center" },
-      { Header: "action", accessor: "action", align: "center" },
+      { Header: "Name", accessor: "Name", width: "30%", align: "left" },
+      { Header: "Cpu", accessor: "Cpu", width: "10%", align: "left" },
+      { Header: "Address", accessor: "Address", width: "20%", align: "center" },
+      { Header: "Version", accessor: "Version", width: "20%", align: "center" },
+      { Header: "Os", accessor: "Os", width: "20%", align: "center" },
     ],
-
     rows: [
       {
-        project: "Node1",
-        budget: (
-          <MDTypography component="a" href="#" variant="button" color="text" fontWeight="medium">
-            $2,500
-          </MDTypography>
-        ),
-        status: (
-          <MDTypography component="a" href="#" variant="caption" color="text" fontWeight="medium">
-            working
-          </MDTypography>
-        ),
-        completion: "Test",
-        action: (
-          <MDTypography component="a" href="#" color="text">
-            <Icon>more_vert</Icon>
-          </MDTypography>
-        ),
+        Name: "Node1",
+        Cpu: 4,
+        Address: "127.0.0.1",
+        Version: "v1.24.6+rke2r1",
+        Os: "Ubuntu 22.04 LTS",
       },
     ],
   };
