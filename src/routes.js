@@ -40,6 +40,7 @@ import Dashboard from "layouts/dashboard";
 import Tables from "layouts/tables";
 import Nodes from "layouts/nodes";
 import Namespaces from "layouts/namespaces";
+import Deployments from "layouts/deployments";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
 import Notifications from "layouts/notifications";
@@ -74,6 +75,14 @@ const routes = [
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/namespaces",
     component: <Namespaces />,
+  },
+  {
+    type: "collapse",
+    name: "Deployments",
+    key: "deployments",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/deployments",
+    component: <Deployments />,
   },
   {
     type: "collapse",
