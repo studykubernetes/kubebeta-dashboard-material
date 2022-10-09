@@ -59,7 +59,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Deployments Table
+                  Pods Table
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>

@@ -105,8 +105,8 @@ function Dashboard() {
               <ComplexStatisticsCard
                 color="primary"
                 icon="person_add"
-                title="Followers"
-                count="+91"
+                title="Pods"
+                count={ResponseData.podCount}
                 percentage={{
                   color: "success",
                   amount: "",
