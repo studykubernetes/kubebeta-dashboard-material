@@ -24,12 +24,14 @@ import MDTypography from "components/MDTypography";
 // Material Dashboard 2 React example components
 import TimelineItem from "examples/Timeline/TimelineItem";
 
-function OrdersOverview() {
+function OrdersOverview(args) {
+  const { data } = args;
+  console.log(data);
   return (
     <Card sx={{ height: "100%" }}>
       <MDBox pt={3} px={3}>
         <MDTypography variant="h6" fontWeight="medium">
-          Orders overview
+          Latest events {data}
         </MDTypography>
         <MDBox mt={0} mb={2}>
           <MDTypography variant="button" color="text" fontWeight="regular">
