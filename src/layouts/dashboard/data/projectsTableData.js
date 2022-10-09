@@ -43,9 +43,9 @@ export default function data(hideLoading) {
       console.log(json.ResponseCode);
 
       setNodes(json.ResponseData);
+      hideLoading();
     };
     fetchData();
-    hideLoading();
   }, []);
 
   return {
