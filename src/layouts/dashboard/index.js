@@ -35,11 +35,21 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
+import Loading from "react-fullscreen-loading";
+import projectsTableData from "layouts/dashboard/data/projectsTableData";
+import { useState } from "react";
+
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
+  const [loading, setLoading] = useState(true);
+  const hideLoading = () => {
+    setLoading(false);
+  };
+  const { ResponseData } = projectsTableData(hideLoading);
 
   return (
     <DashboardLayout>
+      <Loading loading={loading} background="rgba(0,0,0,0.6)" loaderColor="#3498db" />
       <DashboardNavbar />
       <MDBox py={3}>
         <Grid container spacing={3}>
@@ -48,8 +58,8 @@ function Dashboard() {
               <ComplexStatisticsCard
                 color="dark"
                 icon="weekend"
-                title="Bookings"
-                count={281}
+                title="Deployments"
+                count={ResponseData.deployCount}
                 percentage={{
                   color: "success",
                   amount: "+55%",
@@ -62,8 +72,8 @@ function Dashboard() {
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
                 icon="leaderboard"
-                title="Today's Users"
-                count="2,300"
+                title="Daemonsets"
+                count={ResponseData.daemonsetCount}
                 percentage={{
                   color: "success",
                   amount: "+3%",
