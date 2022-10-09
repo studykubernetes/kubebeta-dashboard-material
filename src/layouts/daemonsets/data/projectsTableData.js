@@ -33,7 +33,7 @@ Coded by www.creative-tim.com
 // import logoInvesion from "assets/images/small-logos/logo-invision.svg";
 import { useState, useEffect } from "react";
 
-export default function data() {
+export default function data(hideLoading) {
   const [nodes, setNodes] = useState(Array);
   useEffect(() => {
     const url = "http://localhost:8080/daemonsets";
@@ -53,6 +53,7 @@ export default function data() {
         });
       });
       setNodes(ajaxData);
+      hideLoading();
     };
     fetchData();
   }, []);

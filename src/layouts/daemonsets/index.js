@@ -26,16 +26,23 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
+import Loading from "react-fullscreen-loading";
 
 // Data
 // import authorsTableData from "layouts/nodes/data/authorsTableData";
 import projectsTableData from "layouts/daemonsets/data/projectsTableData";
+import { useState } from "react";
 
 function Tables() {
-  const { columns: pColumns, rows: pRows } = projectsTableData();
+  const [loading, setLoading] = useState(true);
+  const hideLoading = () => {
+    setLoading(false);
+  };
+  const { columns: pColumns, rows: pRows } = projectsTableData(hideLoading);
 
   return (
     <DashboardLayout>
+      <Loading loading={loading} background="rgba(0,0,0,0.6)" loaderColor="#3498db" />;
       <DashboardNavbar />
       <MDBox pt={6} pb={3}>
         <Grid container spacing={6}>
@@ -52,7 +59,7 @@ function Tables() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  Deployments Table
+                  Daemonsets Table
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
