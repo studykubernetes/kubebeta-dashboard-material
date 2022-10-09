@@ -45,7 +45,10 @@ function Dashboard() {
   const hideLoading = () => {
     setLoading(false);
   };
-  const { ResponseData } = projectsTableData(hideLoading);
+  let { ResponseData } = projectsTableData(hideLoading);
+  if (ResponseData === undefined) {
+    ResponseData = {};
+  }
 
   return (
     <DashboardLayout>

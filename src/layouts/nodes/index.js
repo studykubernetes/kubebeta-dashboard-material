@@ -42,7 +42,7 @@ function Tables() {
 
   return (
     <DashboardLayout>
-      <Loading loading={loading} background="rgba(0,0,0,0.6)" loaderColor="#3498db" />;
+      <Loading loading={loading} background="rgba(0,0,0,0.6)" loaderColor="#3498db" />
       <DashboardNavbar />
       <MDBox pt={6} pb={3}>
         <Grid container spacing={6}>
