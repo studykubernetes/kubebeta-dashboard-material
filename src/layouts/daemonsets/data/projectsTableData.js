@@ -36,7 +36,7 @@ import { useState, useEffect } from "react";
 export default function data() {
   const [nodes, setNodes] = useState(Array);
   useEffect(() => {
-    const url = "http://localhost:8080/deployments";
+    const url = "http://localhost:8080/daemonsets";
     const fetchData = async () => {
       const response = await fetch(url);
       const json = await response.json();
@@ -49,7 +49,7 @@ export default function data() {
           Namespace: String(el.Namespace),
           Image: String(el.Image),
           CreationTimestamp: String(el.CreationTimestamp),
-          Replicas: String(el.Replicas),
+          NumberAvailable: String(el.NumberAvailable),
         });
       });
       setNodes(ajaxData);
@@ -62,7 +62,7 @@ export default function data() {
       { Header: "Name", accessor: "Name", width: "20%", align: "left" },
       { Header: "Namespace", accessor: "Namespace", width: "20%", align: "left" },
       { Header: "Image", accessor: "Image", width: "20%", align: "left" },
-      { Header: "Replicas", accessor: "Replicas", width: "10%", align: "right" },
+      { Header: "NumberAvailable", accessor: "NumberAvailable", width: "10%", align: "right" },
       { Header: "CreationTimestamp", accessor: "CreationTimestamp", width: "20%", align: "right" },
     ],
     rows: nodes,
