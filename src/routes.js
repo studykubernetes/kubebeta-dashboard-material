@@ -42,6 +42,7 @@ import Nodes from "layouts/nodes";
 import Namespaces from "layouts/namespaces";
 import Deployments from "layouts/deployments";
 import Daemonsets from "layouts/daemonsets";
+import Services from "layouts/services";
 // import Billing from "layouts/billing";
 // import RTL from "layouts/rtl";
 // import Notifications from "layouts/notifications";
@@ -92,6 +93,14 @@ const routes = [
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/daemonsets",
     component: <Daemonsets />,
+  },
+  {
+    type: "collapse",
+    name: "Services",
+    key: "services",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/services",
+    component: <Services />,
   },
   // {
   //   type: "collapse",
