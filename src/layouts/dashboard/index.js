@@ -163,7 +163,7 @@ function Dashboard() {
               <Projects />
             </Grid>
             <Grid item xs={12} md={6} lg={4}>
-              <OrdersOverview data={ResponseData.podCount} />
+              <OrdersOverview data={ResponseData.events} />
             </Grid>
           </Grid>
         </MDBox>
