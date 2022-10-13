@@ -44,6 +44,7 @@ import Deployments from "layouts/deployments";
 import Daemonsets from "layouts/daemonsets";
 import Services from "layouts/services";
 import Pods from "layouts/pods";
+import Podlogs from "layouts/podlogs";
 // import Billing from "layouts/billing";
 // import RTL from "layouts/rtl";
 // import Notifications from "layouts/notifications";
@@ -110,6 +111,14 @@ const routes = [
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/pods",
     component: <Pods />,
+  },
+  {
+    type: "collapse",
+    name: "Podlogs",
+    key: "Podlogs",
+    icon: <Icon fontSize="small">table_view</Icon>,
+    route: "/podlogs",
+    component: <Podlogs />,
   },
   // {
   //   type: "collapse",
