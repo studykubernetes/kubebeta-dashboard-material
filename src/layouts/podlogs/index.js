@@ -26,11 +26,16 @@ import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import Footer from "examples/Footer";
 import { XTerm } from "xterm-for-react";
-
+import { useRef, useEffect } from "react";
 // Data
 // import authorsTableData from "layouts/nodes/data/authorsTableData";
 
 function Tables() {
+  const xtermRef = useRef(null);
+  useEffect(() => {
+    xtermRef.current.terminal.writeln("Hello, World!");
+  }, []);
+
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -53,7 +58,7 @@ function Tables() {
                 </MDTypography>
               </MDBox>
               <MDBox pt={3}>
-                <XTerm />
+                <XTerm ref={xtermRef} />
               </MDBox>
             </Card>
           </Grid>
