@@ -34,6 +34,18 @@ function Tables() {
   const xtermRef = useRef(null);
   useEffect(() => {
     xtermRef.current.terminal.writeln("Hello, World!");
+
+    const url = "ws://localhost:8081";
+    const path = "/logstream?namespace=kube-system&pod=etcd-lizhe-virtual-machine&container=etcd";
+    const websocket = new WebSocket(url + path);
+    websocket.onopen = function () {
+      console.log("ws open");
+      websocket.send("Start fetch logs");
+    };
+    websocket.onmessage = function (event) {
+      const { data } = event;
+      xtermRef.current.terminal.writeln(data);
+    };
   }, []);
 
   return (
